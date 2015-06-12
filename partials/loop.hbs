@@ -1,0 +1,27 @@
+<section id="posts" class="content clearfix  avatar-style-square">
+{{#foreach posts}}
+ <article class="text">
+  <div class="post-wrapper clearfix">
+    <section class="post">
+          <h2><a href="{{url}}">{{{title}}}</a></h2>
+      <div class="source">{{excerpt words="26"}}</div>
+        </section>
+    <section class="panel">
+    <footer class="post-footer">
+      <section class="meta"> 
+        <ul class="date-notes">
+          <li class="post-notes">{{date format="DD MMMM YYYY"}}{{tags prefix=" | "}}</li>
+        </ul>
+      </section>
+    <section class="post-controls">
+      <ul>
+        <li><a href="{{url}}#disqus_thread" title="评论" class="share icon-export"></a></li>
+      </ul>
+    </section>
+    </footer>
+   </section>
+  </div>
+ </article>
+{{/foreach}}
+</section>
+<div class="obox page-nav center">{{pagination}}</div>

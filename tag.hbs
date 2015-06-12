@@ -1,0 +1,44 @@
+{{!< default}}
+<div id="pjax">
+  <section id="page">
+    <div class="nav-menu-wrapper">
+      <nav class="nav-menu pop">
+        <div class="navbar">
+          <div class="selector">
+            <div class="bar-icon-wrapper">
+              <span class="bar-icon"></span>
+              <span class="bar-icon"></span>
+              <span class="bar-icon"></span>
+            </div>
+          </div>
+          <div class="gotop"><i class="icon-arrow_carrot_right top"></i></div>
+        </div>
+        <div class="pop-menu west">
+          <ul>
+            <div class="subtitle">&nbsp;&nbsp;MENU</div>
+                {{#if @blog.navigation}}{{navigation}}{{/if}}
+           </ul>
+        </div> 
+      </nav>
+      <div class="glass"></div>
+    </div>
+    <div class="header-wrapper avatar-style-square">
+      <header id="header">
+        <div class="header-image-wrapper">
+                      <div class="header-image cover" {{#if tag.image}}style="background-image: url({{tag.image}})"{{else}}{{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{else}}{{/if}}{{/if}}></div>
+                  </div>
+        <div class="blog-title content">
+          <figure class="avatar-wrapper animate">
+            <a href="/about.html" style="background-image:url({{asset "avatar.png"}})" class="user-avatar"></a>
+          </figure>
+          <div class="title-group animate">
+            <h1><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+            <span class="description">{{@blog.description}}</span>
+          </div>
+        </div>   
+      </header>
+    </div>
+  </section>
+<div class="obox center alert success">分类 <b>{{tag.name}}</b> 下的文章</div>
+{{> "loop"}}
+</div>
