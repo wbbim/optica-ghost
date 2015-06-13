@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'tcdw';
+    var disqus_shortname = 'YOUR DISQUS SHORTNAME HERE';
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -31,19 +31,24 @@
 <link rel="stylesheet" href="{{asset "nprogress.min.css"}}">
 <script src="{{asset "jquery.pjax.min.js"}}"></script>
 <script src="{{asset "nprogress.min.js"}}"></script>
-<script>if(top.location!==self.location){top.location=self.location};if($(window).scrollTop()>200){$(".navbar").addClass("active")}$(window).scroll(function(){if($(window).scrollTop()<200){$(".navbar").removeClass("active")}else{$(".navbar").addClass("active")}if($(window).scrollTop()==0){$(".gotop>.icon-arrow_carrot_right").addClass("top")}else{$(".gotop>.icon-arrow_carrot_right").removeClass("top")}});$(".selector").on("click",function(){$(".pop-menu.west,.glass").toggleClass("active")});$(".glass").on("click",function(){$(".pop-menu.west,.glass").removeClass("active")});$(".body-text>p>img").on("click",function(){$(this).toggleClass("active")});$(".gotop").on("click",function(){$("html,body").animate({scrollTop:0},"slow")});
-
+<script>
+defineAction = function () {
+if(top.location!==self.location){top.location=self.location};if($(window).scrollTop()>200){$(".navbar").addClass("active")}$(window).scroll(function(){if($(window).scrollTop()<200){$(".navbar").removeClass("active")}else{$(".navbar").addClass("active")}if($(window).scrollTop()==0){$(".gotop>.icon-arrow_carrot_right").addClass("top")}else{$(".gotop>.icon-arrow_carrot_right").removeClass("top")}});$(".selector").on("click",function(){$(".pop-menu.west,.glass").toggleClass("active")});$(".glass").on("click",function(){$(".pop-menu.west,.glass").removeClass("active")});$(".body-text>p>img").on("click",function(){$(this).toggleClass("active")});$(".gotop").on("click",function(){$("html,body").animate({scrollTop:0},"slow")});
+}
 $(function() {
 $(document).pjax('a', '#pjax', {fragment:'#pjax', timeout:6000, scrollTo:false}); 
 $(document).on('submit', '#search', function (event) {$.pjax.submit(event, '#pjax', {fragment:'#pjax',timeout:6000, scrollTo:false});});
-    $(document).on('pjax:send', function() {
+$(document).on('pjax:send', function() {
 NProgress.start();
-	  });
-    $(document).on('pjax:complete', function() {
-NProgress.done();
-$('html,body').animate({scrollTop:0},1000);
-	  });
 });
+$(document).on('pjax:complete', function() {
+NProgress.done();
+DISQUS.reset({reload: true});
+defineAction();
+$('html,body').animate({scrollTop:0},1000);
+});
+});
+defineAction();
 </script>
 </body>
 </html>
