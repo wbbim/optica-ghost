@@ -1,6 +1,5 @@
 {{!< default}}
 {{#post}}
-<div id="pjax">
   <section id="page">
     <div class="nav-menu-wrapper">
       <nav class="nav-menu pop">
@@ -40,36 +39,51 @@
       </header>
     </div>
   </section>
+  
 <section id="posts" class="content clearfix  avatar-style-square">
  <article class="text">
   <div class="post-wrapper clearfix">
     <section class="post">
       <h2>{{title}}</h2>
-      <div class="body-text">{{content}}</p>
-</div>
+      <div class="body-text">
+        {{content}}
+      </div>
     </section>
+    
     <section class="panel">
-    <footer class="post-footer">
-      <section class="meta"> 
-        <ul class="date-notes">
-          <li class="post-notes">
-            {{date format="DD MMMM YYYY"}}{{tags prefix=" | "}}
-        </ul>
-      </section>
-    <section class="post-controls">
-      <ul>
-        <li><a href="http://www.jiathis.com/share" title="分享这篇文章" target="_blank" class="share icon-reblog"></a></li>
-      </ul>
+      <footer class="post-footer">
+        <section class="meta"> 
+          <ul class="date-notes">
+            <li class="post-notes">
+              {{date format="DD MMMM YYYY"}}{{tags prefix=" | "}}
+            </li>
+          </ul>
+        </section>
+        <section class="post-controls">
+          <ul>
+            <li>
+              <a href="http://www.jiathis.com/share" title="分享这篇文章" target="_blank" class="share icon-reblog">
+              </a>
+            </li>
+          </ul>
+        </section>
+      </footer>
     </section>
-    </footer>
-   </section>
+    
   </div>
  </article>
 </section>
+
 <div class="obox"> 
-<div id="disqus_thread">
-<!-- 把评论框代码扔到这里 -->
-</div>
-</div>
+    <div id="disqus_thread">
+      <script type="text/javascript">
+      var disqus_shortname = 'YOUR DISQUS SHORTNAME HERE';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '{{asset "embed.js"}}';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       })();
+      </script>
+     </div>
 </div>
 {{/post}}
