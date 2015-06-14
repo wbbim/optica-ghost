@@ -7,48 +7,32 @@
 <meta name="HandheldFriendly" content="True" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{{asset "style.min.css"}}">
+<link rel="stylesheet" href="{{asset "nprogress.min.css"}}">
 {{ghost_head}}
 </head>
 <body class="{{body_class}} regular index-page">
-{{{body}}}
+  <div id="pjax">
+    {{> "navbar"}}
+    {{{body}}}
+  </div>
   <footer id="footer">
-  &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> | Powered by <a href="https://ghost.org">Ghost</a> | Theme by <a href="http://www.ikirby.eu.org" target="_blank">iKirby</a> & <a href="http://www.tcdw.net">tcdw</a><br><a href="https://www.upyun.com/"><img src="https://upfiles.b0.upaiyun.com/logo/90x45.png" alt="UPYUN"></a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://tcdwcdn.b0.upaiyun.com/assets/img/license.png" /></a>
+  &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> | Powered by <a href="https://ghost.org">Ghost</a> | Theme by <a href="http://www.ikirby.eu.org" target="_blank">iKirby</a> & <a href="http://www.tcdw.net">tcdw</a>
   </footer>
-{{ghost_foot}}
 
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'YOUR DISQUS SHORTNAME HERE';
-    
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '{{asset "embed.js"}}';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<link rel="stylesheet" href="{{asset "nprogress.min.css"}}">
-<script src="{{asset "jquery.pjax.min.js"}}"></script>
-<script src="{{asset "nprogress.min.js"}}"></script>
-<script>
-defineAction = function () {
-if(top.location!==self.location){top.location=self.location};if($(window).scrollTop()>200){$(".navbar").addClass("active")}$(window).scroll(function(){if($(window).scrollTop()<200){$(".navbar").removeClass("active")}else{$(".navbar").addClass("active")}if($(window).scrollTop()==0){$(".gotop>.icon-arrow_carrot_right").addClass("top")}else{$(".gotop>.icon-arrow_carrot_right").removeClass("top")}});$(".selector").on("click",function(){$(".pop-menu.west,.glass").toggleClass("active")});$(".glass").on("click",function(){$(".pop-menu.west,.glass").removeClass("active")});$(".body-text>p>img").on("click",function(){$(this).toggleClass("active")});$(".gotop").on("click",function(){$("html,body").animate({scrollTop:0},"slow")});
-}
-$(function() {
-$(document).pjax('a', '#pjax', {fragment:'#pjax', timeout:6000, scrollTo:false}); 
-$(document).on('submit', '#search', function (event) {$.pjax.submit(event, '#pjax', {fragment:'#pjax',timeout:6000, scrollTo:false});});
-$(document).on('pjax:send', function() {
-NProgress.start();
-});
-$(document).on('pjax:complete', function() {
-NProgress.done();
-DISQUS.reset({reload: true});
-defineAction();
-$('html,body').animate({scrollTop:0},1000);
-});
-});
-defineAction();
-</script>
+   <script type="text/javascript">
+   var disqus_shortname = 'tcdw';
+   (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '{{asset "embed.js"}}';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+   })();
+   </script>
+
+  {{ghost_foot}}
+  
+  <script src="{{asset "jquery.pjax.min.js"}}"></script>
+  <script src="{{asset "nprogress.min.js"}}"></script>
+  <script src="{{asset "script.js"}}"></script>
+
 </body>
 </html>
