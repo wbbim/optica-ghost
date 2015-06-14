@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 defineAction = function() {
+=======
+>>>>>>> origin/master
 if ($(window).scrollTop() > 200) {
 	$(".navbar").addClass("active")
 }
@@ -29,6 +32,11 @@ $(".gotop").on("click", function() {
 		scrollTop: 0
 	}, "slow")
 });
+<<<<<<< HEAD
+=======
+
+defineAction = function() {
+>>>>>>> origin/master
 	if (top.location !== self.location) {
 		top.location = self.location
 	};

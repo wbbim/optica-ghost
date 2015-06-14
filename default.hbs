@@ -11,6 +11,7 @@
 {{ghost_head}}
 </head>
 <body class="{{body_class}} regular index-page">
+<<<<<<< HEAD
   <div id="pjax">
     {{> "navbar"}}
     {{{body}}}
@@ -34,5 +35,23 @@
   <script src="{{asset "nprogress.min.js"}}"></script>
   <script src="{{asset "script.js"}}"></script>
 
+=======
+  
+  {{> "navbar"}}
+  <div id="pjax">
+     {{{body}}}
+  </div>
+  
+  <footer id="footer">
+  &copy; {{date format="YYYY"}} <a href="{{@blog.url}}">{{@blog.title}}</a> | Powered by <a href="https://ghost.org">Ghost</a> | Theme by <a href="http://www.ikirby.eu.org" target="_blank">iKirby</a> & <a href="http://www.tcdw.net">tcdw</a>
+  </footer>
+  
+  {{ghost_foot}}
+  
+  <script src="{{asset "jquery.pjax.min.js"}}"></script>
+  <script src="{{asset "nprogress.min.js"}}"></script>
+  <script src="{{asset "script.js"}}"></script>
+
+>>>>>>> origin/master
 </body>
 </html>
