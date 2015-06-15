@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 defineAction = function() {
-=======
->>>>>>> origin/master
 if ($(window).scrollTop() > 200) {
 	$(".navbar").addClass("active")
 }
@@ -32,11 +29,6 @@ $(".gotop").on("click", function() {
 		scrollTop: 0
 	}, "slow")
 });
-<<<<<<< HEAD
-=======
-
-defineAction = function() {
->>>>>>> origin/master
 	if (top.location !== self.location) {
 		top.location = self.location
 	};
@@ -66,12 +58,14 @@ $(function() {
 		if($('#disqus_thread').length) {
 		    DISQUS.reset({
 			   reload: true
-		    });
-		}
-		defineAction();
+		    });}
 		$('html,body').animate({
 			scrollTop: 0
 		}, 1000);
+defineAction();
 	});
+});
+window.addEventListener('popstate', function(event) {
+    defineAction();
 });
 defineAction();
