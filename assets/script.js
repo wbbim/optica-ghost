@@ -1,34 +1,34 @@
 defineAction = function() {
-if ($(window).scrollTop() > 200) {
-	$(".navbar").addClass("active")
-}
-
-$(window).scroll(function() {
-	if ($(window).scrollTop() < 200) {
-		$(".navbar").removeClass("active")
-	} else {
+	if ($(window).scrollTop() > 200) {
 		$(".navbar").addClass("active")
 	}
-	if ($(window).scrollTop() == 0) {
-		$(".gotop>.icon-arrow_carrot_right").addClass("top")
-	} else {
-		$(".gotop>.icon-arrow_carrot_right").removeClass("top")
-	}
-});
 
-$(".selector").on("click", function() {
-	$(".pop-menu.west,.glass").toggleClass("active")
-});
+	$(window).scroll(function() {
+		if ($(window).scrollTop() < 200) {
+			$(".navbar").removeClass("active")
+		} else {
+			$(".navbar").addClass("active")
+		}
+		if ($(window).scrollTop() <= 0) {
+			$(".gotop>.icon-arrow_carrot_right").addClass("top")
+		} else {
+			$(".gotop>.icon-arrow_carrot_right").removeClass("top")
+		}
+	});
 
-$(".glass").on("click", function() {
-	$(".pop-menu.west,.glass").removeClass("active")
-});
+	$(".selector").on("click", function() {
+		$(".pop-menu.west,.glass").toggleClass("active")
+	});
 
-$(".gotop").on("click", function() {
-	$("html,body").animate({
-		scrollTop: 0
-	}, "slow")
-});
+	$(".glass").on("click", function() {
+		$(".pop-menu.west,.glass").removeClass("active")
+	});
+
+	$(".gotop").on("click", function() {
+		$("html,body").animate({
+			scrollTop: 0
+		}, "slow")
+	});
 	if (top.location !== self.location) {
 		top.location = self.location
 	};
@@ -55,17 +55,18 @@ $(function() {
 	});
 	$(document).on('pjax:complete', function() {
 		NProgress.done();
-		if($('#disqus_thread').length) {
-		    DISQUS.reset({
-			   reload: true
-		    });}
+		if ($('#disqus_thread').length) {
+			DISQUS.reset({
+				reload: true
+			});
+		}
 		$('html,body').animate({
 			scrollTop: 0
 		}, 1000);
-defineAction();
+		defineAction();
 	});
 });
 window.addEventListener('popstate', function(event) {
-    defineAction();
+	defineAction();
 });
 defineAction();
